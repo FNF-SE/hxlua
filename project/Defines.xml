@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<compilerflag value="-DLUA_DEBUG" if="LUA_DEBUG" />
+	<compilerflag value="-DLUA_USE_APICHECK" if="LUA_USE_APICHECK" />
+	<compilerflag value="-DLUA_USE_READLINE" if="LUA_USE_READLINE" />
+</xml>
