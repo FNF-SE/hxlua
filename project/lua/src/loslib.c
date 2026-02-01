@@ -34,10 +34,26 @@ static int os_pushresult (lua_State *L, int i, const char *filename) {
   }
 }
 
+#if !defined(l_system)
+#if defined(LUA_USE_IOS)
+/* Despite claiming to be ISO C, iOS does not implement 'system'. */
+#define l_system(cmd) ((cmd) == NULL ? 0 : -1)
+#else
+#define l_system(cmd)	system(cmd)  /* default definition */
+#endif
+#endif
 
 static int os_execute (lua_State *L) {
-  lua_pushinteger(L, system(luaL_optstring(L, 1, NULL)));
-  return 1;
+  const char *cmd = luaL_optstring(L, 1, NULL);
+  int stat;
+  errno = 0;
+  stat = l_system(cmd);
+  if (cmd != NULL)
+    return luaL_execresult(L, stat);
+  else {
+    lua_pushboolean(L, stat);  /* true if there is a shell */
+    return 1;
+  }
 }
 
 

@@ -88,6 +88,9 @@ LUALIB_API const char *(luaL_gsub) (lua_State *L, const char *s, const char *p,
 LUALIB_API const char *(luaL_findtable) (lua_State *L, int idx,
                                          const char *fname, int szhint);
 
+LUALIB_API int (luaL_fileresult) (lua_State *L, int stat, const char *fname);
+LUALIB_API int (luaL_execresult) (lua_State *L, int stat);
+
 
 
 
@@ -165,6 +168,9 @@ LUALIB_API void (luaL_pushresult) (luaL_Buffer *B);
 #define lua_unref(L,ref)        luaL_unref(L, LUA_REGISTRYINDEX, (ref))
 
 #define lua_getref(L,ref)       lua_rawgeti(L, LUA_REGISTRYINDEX, (ref))
+
+/* push the value used to represent failure/error */
+#define luaL_pushfail(L)	lua_pushnil(L)
 
 
 #define luaL_reg	luaL_Reg
