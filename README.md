@@ -1,6 +1,6 @@
 # hxlua
 
-![](https://img.shields.io/github/repo-size/FNF-SE/hxlua) ![](https://badgen.net/github/open-issues/FNF-SE/hxlua) ![](https://badgen.net/badge/license/MIT/green)
+![](https://img.shields.io/github/repo-size/ShadowEngineTeam/hxlua) ![](https://badgen.net/github/open-issues/ShadowEngineTeam/hxlua) ![](https://badgen.net/badge/license/MIT/green)
 
 Haxe/hxcpp @:native bindings for [Lua](http://www.lua.org).
 
@@ -12,7 +12,7 @@ haxelib install hxlua
 ```
 Or through `Git`, if you want the latest updates
 ```bash
-haxelib git hxlua https://github.com/FNF-SE/hxlua.git
+haxelib git hxlua https://github.com/ShadowEngineTeam/hxlua.git
 ```
 
 ### Usage Example
